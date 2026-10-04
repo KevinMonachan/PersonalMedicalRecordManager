@@ -1,0 +1,126 @@
+{% extends 'Base.html' %}
+
+{% block title %}Doctor Visits{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h2 class="fw-bold mb-1">Doctor Visits</h2>
+            <p class="text-muted mb-0">
+                Your previous doctor visit records
+            </p>
+        </div>
+
+        <a href="{% url 'doctorvisitform' %}"
+           class="btn btn-primary">
+            + Add New
+        </a>
+
+    </div>
+
+
+    <!-- Existing Records -->
+    {% if visits %}
+
+        <div class="row g-4">
+
+            {% for visit in visits %}
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="card shadow-sm border-0 h-100">
+
+                        <div class="card-body">
+
+                            <h5 class="fw-bold">
+                                {{ visit.DoctorName }}
+                            </h5>
+
+                            <p class="text-muted mb-2">
+                                {{ visit.Hospital }}
+                            </p>
+
+                            <hr>
+
+                            <p>
+                                <strong>Visit Date:</strong>
+                                {{ visit.visitDate }}
+                            </p>
+
+                            {% if visit.Reason %}
+                                <p>
+                                    <strong>Reason:</strong>
+                                    {{ visit.Reason }}
+                                </p>
+                            {% endif %}
+
+                            {% if visit.Diagnosis %}
+                                <p>
+                                    <strong>Diagnosis:</strong>
+                                    {{ visit.Diagnosis }}
+                                </p>
+                            {% endif %}
+
+                            {% if visit.Prescription %}
+                                <p>
+                                    <strong>Prescription:</strong>
+                                    {{ visit.Prescription }}
+                                </p>
+                            {% endif %}
+
+                            {% if visit.Notes %}
+                                <p>
+                                    <strong>Notes:</strong>
+                                    {{ visit.Notes }}
+                                </p>
+                            {% endif %}
+
+                            {% if visit.Result %}
+                                <a href="{{ visit.Result.url }}"
+                                   class="btn btn-outline-primary btn-sm"
+                                   target="_blank">
+                                    View Report
+                                </a>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+
+    {% else %}
+
+        <!-- No Records -->
+        <div class="text-center py-5">
+
+            <h5 class="text-muted">
+                No doctor visits found
+            </h5>
+
+            <p class="text-muted">
+                You haven't added any doctor visits yet.
+            </p>
+
+            <a href="{% url 'doctorvisitform' %}"
+               class="btn btn-primary">
+                + Add Your First Visit
+            </a>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

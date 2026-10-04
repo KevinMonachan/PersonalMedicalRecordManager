@@ -1,0 +1,158 @@
+{% extends 'Base.html' %}
+
+{% block title %}Doctor Visits{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- Page Heading -->
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Doctor Visit</h2>
+        <p class="text-muted">
+            Add details about your doctor visit
+        </p>
+    </div>
+
+    <!-- Doctor Visit Form -->
+    <div class="row justify-content-center">
+
+        <div class="col-md-8 col-lg-7">
+
+            <div class="card shadow-sm border-0">
+
+                <div class="card-body p-4">
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+                        <!-- Doctor Name -->
+                        <div class="mb-3">
+                            <label for="doctor_name"
+                                   class="form-label">
+                                Doctor Name
+                            </label>
+
+                            <input type="text"
+                                   class="form-control"
+                                   id="doctor_name"
+                                   name="doctor_name"
+                                   placeholder="Enter doctor name"
+                                   required>
+                        </div>
+
+                        <!-- Hospital Name -->
+                        <div class="mb-3">
+                            <label for="hospital_name"
+                                   class="form-label">
+                                Hospital / Clinic
+                            </label>
+
+                            <input type="text"
+                                   class="form-control"
+                                   id="hospital_name"
+                                   name="hospital_name"
+                                   placeholder="Enter hospital or clinic name"
+                                   required>
+                        </div>
+
+                        <!-- Visit Date -->
+                        <div class="mb-3">
+                            <label for="visit_date"
+                                   class="form-label">
+                                Visit Date
+                            </label>
+
+                            <input type="date"
+                                   class="form-control"
+                                   id="visit_date"
+                                   name="visit_date"
+                                   required>
+                        </div>
+
+                        <!-- Reason -->
+                        <div class="mb-3">
+                            <label for="reason"
+                                   class="form-label">
+                                Reason for Visit
+                            </label>
+
+                            <textarea class="form-control"
+                                      id="reason"
+                                      name="reason"
+                                      rows="3"
+                                      placeholder="Enter reason for the visit"
+                                      required></textarea>
+                        </div>
+
+                        <!-- Diagnosis -->
+                        <div class="mb-3">
+                            <label for="diagnosis"
+                                   class="form-label">
+                                Diagnosis
+                            </label>
+
+                            <textarea class="form-control"
+                                      id="diagnosis"
+                                      name="diagnosis"
+                                      rows="3"
+                                      placeholder="Enter diagnosis"></textarea>
+                        </div>
+
+                        <!-- Prescription -->
+                        <div class="mb-3">
+                            <label for="prescription"
+                                   class="form-label">
+                                Prescription / Medicines
+                            </label>
+
+                            <textarea class="form-control"
+                                      id="prescription"
+                                      name="prescription"
+                                      rows="3"
+                                      placeholder="Enter prescribed medicines"></textarea>
+                        </div>
+
+                        <!-- Notes -->
+                        <div class="mb-4">
+                            <label for="notes"
+                                   class="form-label">
+                                Additional Notes
+                            </label>
+
+                            <textarea class="form-control"
+                                      id="notes"
+                                      name="notes"
+                                      rows="3"
+                                      placeholder="Any additional information"></textarea>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-between">
+
+                            <a href="{% url 'dashboard' %}"
+                               class="btn btn-secondary">
+                                Back
+                            </a>
+
+                            <button type="submit"
+                                    class="btn btn-primary">
+                                Save Visit
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

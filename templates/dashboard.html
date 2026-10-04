@@ -1,0 +1,60 @@
+{% extends 'Base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+        <h1 class="fw-bold">Medical Record Dashboard</h1>
+        <p class="text-muted">
+            Manage your medical records in one place.
+        </p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+
+        <!-- Doctor Visits -->
+        <div class="col-md-5">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body text-center p-4">
+
+                    <h3 class="fw-bold">Doctor Visits</h3>
+
+                    <p class="text-muted">
+                        View and manage your doctor visit records.
+                    </p>
+
+                    <a href="#" class="btn btn-primary">
+                        Open Doctor Visits
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Medical Tests -->
+        <div class="col-md-5">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body text-center p-4">
+
+                    <h3 class="fw-bold">Medical Tests</h3>
+
+                    <p class="text-muted">
+                        View and manage your medical test results.
+                    </p>
+
+                    <a href="#" class="btn btn-success">
+                        Open Medical Tests
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

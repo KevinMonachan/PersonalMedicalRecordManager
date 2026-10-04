@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages 
 
@@ -25,7 +25,11 @@ def login_view(request):
     return render(request,'registration/login.html')
 @login_required
 def dashboard(request):
-    return render(request,'dashboard')    
+    return render(request,'dashboard.html')    
 
 def registration_view(request):
-    return render(request,'registration/register.html')    
+    return render(request,'registration/register.html')
+    
+def logout_view(request):
+    logout(request)
+    return redirect("login") 

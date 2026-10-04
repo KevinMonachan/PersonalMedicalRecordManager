@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
-def visitform(request):
-    return render(request,'visitForm.html')
+def doctorvisit_view(request):
+    return render(request,'doctorvisit/doctorvisit.html')
+def doctorvisitform_view(request):
+    return render(request,'doctorvisit/doctorvisitform.html')
+
 
