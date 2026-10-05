@@ -1,0 +1,150 @@
+{% extends 'Base.html' %}
+
+{% block title %}Add Medical Test{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- Page Heading -->
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Add Medical Test</h2>
+        <p class="text-muted">
+            Enter details about your medical test
+        </p>
+    </div>
+
+
+    <!-- Medical Test Form -->
+    <div class="row justify-content-center">
+
+        <div class="col-md-8 col-lg-7">
+
+            <div class="card shadow-sm border-0">
+
+                <div class="card-body p-4">
+
+                    <form method="POST"
+                          enctype="multipart/form-data">
+
+                        {% csrf_token %}
+
+
+                        <!-- Test Name -->
+                        <div class="mb-3">
+
+                            <label for="TestName"
+                                   class="form-label">
+                                Test Name
+                            </label>
+
+                            <input type="text"
+                                   class="form-control"
+                                   id="TestName"
+                                   name="TestName"
+                                   placeholder="Enter test name"
+                                   required>
+
+                        </div>
+
+
+                        <!-- Test Date -->
+                        <div class="mb-3">
+
+                            <label for="TestDate"
+                                   class="form-label">
+                                Test Date
+                            </label>
+
+                            <input type="date"
+                                   class="form-control"
+                                   id="TestDate"
+                                   name="TestDate"
+                                   required>
+
+                        </div>
+
+
+                        <!-- Result -->
+                        <div class="mb-3">
+
+                            <label for="Result"
+                                   class="form-label">
+                                Test Result
+                            </label>
+
+                            <textarea class="form-control"
+                                      id="Result"
+                                      name="Result"
+                                      rows="4"
+                                      placeholder="Enter test result"
+                                      required></textarea>
+
+                        </div>
+
+
+                        <!-- Notes -->
+                        <div class="mb-3">
+
+                            <label for="notes"
+                                   class="form-label">
+                                Additional Notes
+                            </label>
+
+                            <textarea class="form-control"
+                                      id="notes"
+                                      name="notes"
+                                      rows="3"
+                                      placeholder="Any additional information"></textarea>
+
+                        </div>
+
+
+                        <!-- Report -->
+                        <div class="mb-4">
+
+                            <label for="Report"
+                                   class="form-label">
+                                Medical Report
+                            </label>
+
+                            <input type="file"
+                                   class="form-control"
+                                   id="Report"
+                                   name="Report">
+
+                            <div class="form-text">
+                                Upload your medical test report.
+                            </div>
+
+                        </div>
+
+
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-between">
+
+                            <a href="{% url 'medicaltestview' %}"
+                               class="btn btn-secondary">
+                                Back
+                            </a>
+
+                            <button type="submit"
+                                    class="btn btn-primary">
+                                Save Test
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

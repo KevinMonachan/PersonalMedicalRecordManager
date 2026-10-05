@@ -1,6 +1,6 @@
 {% extends 'Base.html' %}
 
-{% block title %}Doctor Visits{% endblock %}
+{% block title %}Add Doctor Visit{% endblock %}
 
 {% block content %}
 
@@ -8,11 +8,12 @@
 
     <!-- Page Heading -->
     <div class="text-center mb-5">
-        <h2 class="fw-bold">Doctor Visit</h2>
+        <h2 class="fw-bold">Add Doctor Visit</h2>
         <p class="text-muted">
-            Add details about your doctor visit
+            Enter details about your doctor visit
         </p>
     </div>
+
 
     <!-- Doctor Visit Form -->
     <div class="row justify-content-center">
@@ -23,115 +24,157 @@
 
                 <div class="card-body p-4">
 
-                    <form method="POST">
+                    <form method="POST"
+                          enctype="multipart/form-data">
 
                         {% csrf_token %}
 
+
                         <!-- Doctor Name -->
                         <div class="mb-3">
-                            <label for="doctor_name"
+
+                            <label for="DoctorName"
                                    class="form-label">
                                 Doctor Name
                             </label>
 
                             <input type="text"
                                    class="form-control"
-                                   id="doctor_name"
-                                   name="doctor_name"
+                                   id="DoctorName"
+                                   name="DoctorName"
                                    placeholder="Enter doctor name"
                                    required>
+
                         </div>
 
-                        <!-- Hospital Name -->
+
+                        <!-- Hospital -->
                         <div class="mb-3">
-                            <label for="hospital_name"
+
+                            <label for="Hospital"
                                    class="form-label">
                                 Hospital / Clinic
                             </label>
 
                             <input type="text"
                                    class="form-control"
-                                   id="hospital_name"
-                                   name="hospital_name"
+                                   id="Hospital"
+                                   name="Hospital"
                                    placeholder="Enter hospital or clinic name"
                                    required>
+
                         </div>
+
 
                         <!-- Visit Date -->
                         <div class="mb-3">
-                            <label for="visit_date"
+
+                            <label for="visitDate"
                                    class="form-label">
                                 Visit Date
                             </label>
 
                             <input type="date"
                                    class="form-control"
-                                   id="visit_date"
-                                   name="visit_date"
+                                   id="visitDate"
+                                   name="visitDate"
                                    required>
+
                         </div>
+
 
                         <!-- Reason -->
                         <div class="mb-3">
-                            <label for="reason"
+
+                            <label for="Reason"
                                    class="form-label">
                                 Reason for Visit
                             </label>
 
                             <textarea class="form-control"
-                                      id="reason"
-                                      name="reason"
+                                      id="Reason"
+                                      name="Reason"
                                       rows="3"
-                                      placeholder="Enter reason for the visit"
-                                      required></textarea>
+                                      placeholder="Enter reason for the visit"></textarea>
+
                         </div>
+
 
                         <!-- Diagnosis -->
                         <div class="mb-3">
-                            <label for="diagnosis"
+
+                            <label for="Diagnosis"
                                    class="form-label">
                                 Diagnosis
                             </label>
 
                             <textarea class="form-control"
-                                      id="diagnosis"
-                                      name="diagnosis"
+                                      id="Diagnosis"
+                                      name="Diagnosis"
                                       rows="3"
                                       placeholder="Enter diagnosis"></textarea>
+
                         </div>
+
 
                         <!-- Prescription -->
                         <div class="mb-3">
-                            <label for="prescription"
+
+                            <label for="Prescription"
                                    class="form-label">
                                 Prescription / Medicines
                             </label>
 
                             <textarea class="form-control"
-                                      id="prescription"
-                                      name="prescription"
+                                      id="Prescription"
+                                      name="Prescription"
                                       rows="3"
                                       placeholder="Enter prescribed medicines"></textarea>
+
                         </div>
 
+
                         <!-- Notes -->
-                        <div class="mb-4">
-                            <label for="notes"
+                        <div class="mb-3">
+
+                            <label for="Notes"
                                    class="form-label">
                                 Additional Notes
                             </label>
 
                             <textarea class="form-control"
-                                      id="notes"
-                                      name="notes"
+                                      id="Notes"
+                                      name="Notes"
                                       rows="3"
                                       placeholder="Any additional information"></textarea>
+
                         </div>
+
+
+                        <!-- Result / Report -->
+                        <div class="mb-4">
+
+                            <label for="Result"
+                                   class="form-label">
+                                Medical Report
+                            </label>
+
+                            <input type="file"
+                                   class="form-control"
+                                   id="Result"
+                                   name="Result">
+
+                            <div class="form-text">
+                                Upload your doctor visit report.
+                            </div>
+
+                        </div>
+
 
                         <!-- Buttons -->
                         <div class="d-flex justify-content-between">
 
-                            <a href="{% url 'dashboard' %}"
+                            <a href="{% url 'doctorvisitform' %}"
                                class="btn btn-secondary">
                                 Back
                             </a>
